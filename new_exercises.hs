@@ -47,3 +47,29 @@ pyths n = [(x, y, z) | x <- [1 .. n], y <- [1 .. n], z <- [1 .. n], x ^ 2 + y ^ 
 -- comprehension = concat [nestedcomprehension x | y <- [3, 4]]
 
 -- ncomp = [(x,y) | x <- [1,2], y <- [3,4]]
+
+
+
+
+
+
+
+-- 1. Show how the list comprehension [f x | x <- xs, p x] can be re-expressed
+-- using the higher-order functions map and filter.
+som = map (filter p xs)
+
+-- 2. Without looking at the definitions from the standard prelude, define the following
+-- higher-order library functions on lists.
+-- a. Decide if all elements of a list satisfy a predicate:
+-- all :: (a -> Bool) -> [Bool] -> Bool
+-- b. Decide if any element of a list satisfies a predicate:
+-- any :: (a -> Bool) -> [Bool] -> Bool
+-- c. Select elements from a list while they satisfy a predicate:
+-- takeWhile :: (a -> Bool) -> [a] -> [a]
+-- d. Remove elements from a list while they satisfy a predicate:
+-- dropWhile :: (a -> Bool) -> [a] -> [a]
+-- Note: in the prelude the first two of these functions are generic functions
+-- rather than being specific to the type of lists.
+
+
+-- 3. Redefine the functions map f and filter p using foldr.
