@@ -42,17 +42,16 @@ pyths n = [(x, y, z) | x <- [1 .. n], y <- [1 .. n], z <- [1 .. n], x ^ 2 + y ^ 
 
 -- nestedcomprehension :: Int -> [(Int, Int)]
 -- nestedcomprehension x = [(x,y) | y <- [3,4]]
+nestedComprehension :: Int -> [(Int, Int)]
+nestedComprehension x = [(x, y) | y <- [3, 4]]
+
+concatenatedPairs :: [(Int, Int)]
+concatenatedPairs = concat [nestedComprehension x | x <- [1, 2]]
 
 -- comprehension :: [(Int, Int)]
 -- comprehension = concat [nestedcomprehension x | y <- [3, 4]]
 
 -- ncomp = [(x,y) | x <- [1,2], y <- [3,4]]
-
-
-
-
-
-
 
 -- 1. Show how the list comprehension [f x | x <- xs, p x] can be re-expressed
 -- using the higher-order functions map and filter.
@@ -70,6 +69,5 @@ som = map (filter p xs)
 -- dropWhile :: (a -> Bool) -> [a] -> [a]
 -- Note: in the prelude the first two of these functions are generic functions
 -- rather than being specific to the type of lists.
-
 
 -- 3. Redefine the functions map f and filter p using foldr.
