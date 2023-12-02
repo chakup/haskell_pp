@@ -23,7 +23,7 @@ data BinarySearchTree a
 
 instance Functor BinarySearchTree where
   fmap :: (a -> b) -> BinarySearchTree a -> BinarySearchTree b
-  fmap f (Branch m n l) = Branch (f m) () ()
+  fmap f (Branch m n l) = Branch (fmap f m) (f n) (fmap f l)
   fmap _ Leaf = Leaf
 
 -- Exercise 1.c
@@ -35,7 +35,7 @@ data NonEmpty' a = NonEmpty'
 
 instance Functor NonEmpty' where
   fmap :: (a -> b) -> NonEmpty' a -> NonEmpty' b
-  fmap f (NonEmpty' x xs) = undefined
+  fmap f (NonEmpty' x xs) = fmap f (NonEmpty' x xs)
 
 --------------------------------------------------------------------------------
 -- Exercise 2. Implement the following functions without using fmap.

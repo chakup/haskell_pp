@@ -12,6 +12,13 @@
 -- 7.9.1 Show how the list comprehension [f x | x <- xs, p x] can be re-expressed
 -- using the higher-order functions map and filter
 
+
+exercise791 :: (a -> b) -> (a -> b) -> [a] -> [a]
+exercise791 f p (x:xs) = map f x 
+    | filter p x
+
+
+
 -- map f (filter p xs)
 
 -- 7.9.2 Without looking at the definitions from the standard prelude, define the fol-
